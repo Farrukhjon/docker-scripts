@@ -1,5 +1,6 @@
 #!/bin/bash
 
+docker pull rabbitmq:management
 docker stop rabbitmq
 docker rm rabbitmq
 

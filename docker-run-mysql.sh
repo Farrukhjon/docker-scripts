@@ -1,5 +1,6 @@
 #!/bin/bash
 
+docker pull mysql
 docker stop mysql
 docker rm mysql
 

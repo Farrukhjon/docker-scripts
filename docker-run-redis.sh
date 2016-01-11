@@ -1,5 +1,6 @@
 #!/bin/bash
 
+docker pull redis
 docker stop redis
 docker rm redis
 

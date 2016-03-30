@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker pull postgres
+#docker pull postgres
 docker stop postgres
 docker rm postgres
 

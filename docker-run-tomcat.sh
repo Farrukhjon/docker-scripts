@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker pull tomcat:8-jre8
+#docker pull tomcat:8-jre8
 docker stop tomcat
 docker rm tomcat
 docker run --detach --name tomcat --hostname tomcat --publish 127.0.0.1:8888:8080 --restart always \

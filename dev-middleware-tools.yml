@@ -35,7 +35,6 @@ services:
     network_mode: host
     volumes:
       - mongo-data:/var/lib/mongo-data
-    command: mongod --storageEngine=wiredTiger --wiredTigerCacheSizeGB=1 --notablescan --journalCommitInterval=300 --directoryperdb
   redis:
     image: redis
     hostname: redis
@@ -44,7 +43,7 @@ services:
     network_mode: host
     mem_limit: 512m
     volumes:
-      - redis-data:/varlib/redis-data
+      - redis-data:/var/lib/redis-data
   postgres:
     image: postgres
     hostname: postgres
@@ -57,7 +56,16 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: testdb
     volumes:
-      - postgres-data:/varlib/postgres-data
+      - postgres-data:/var/lib/postgres-data
+  jenkins:
+    image: jenkinsci/jenkins
+    hostname: jenkins
+    container_name: jenkins
+    restart: always
+    network_mode: host
+    mem_limit: 1024m
+    volumes:
+      - jenkins-data:/var/jenkins_home
 
 volumes:
   mysql-data:
@@ -70,4 +78,5 @@ volumes:
     external: true
   postgres-data:
     external: true
-
+  jenkins-data:
+    external: true

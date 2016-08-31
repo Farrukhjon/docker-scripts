@@ -66,6 +66,22 @@ services:
     mem_limit: 1024m
     volumes:
       - jenkins-data:/var/jenkins_home
+  solr:
+    image: solr
+    hostname: solr
+    container_name: solr
+    restart: always
+    network_mode: host
+    volumes:
+      - solr-data:/var/solr-data
+  elasticsearch:
+    image: elasticsearch
+    hostname: elasticsearch
+    container_name: elasticsearch
+    restart: always
+    network_mode: host
+    volumes:
+     - elasticsearch-data:/usr/share/elasticsearch/data
 
 volumes:
   mysql-data:
@@ -80,3 +96,8 @@ volumes:
     external: true
   jenkins-data:
     external: true
+  solr-data:
+    external: true
+  elasticsearch-data:
+    external: true
+
